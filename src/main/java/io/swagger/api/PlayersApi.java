@@ -36,7 +36,8 @@ import java.util.Map;
 @Validated
 public interface PlayersApi {
 
-    @Operation(summary = "Get all players", description = "", tags={ "Operations about Player" })
+    @Operation(summary = "Get all players", description = "",security = {
+            @SecurityRequirement(name = "basicAuth")    }, tags={ "Operations about Player" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Player.class)))),
         
